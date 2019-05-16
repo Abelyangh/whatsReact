@@ -5,7 +5,9 @@
     "main": "app.js",
     "scripts": {
         "test": "npm run test",
-        "start": "node server/index.js"
+        "start": "node server/index.js",
+        "dev": "webpack --mode development && node server/index.js",
+        "build": "webpack --mode production"
     },
     "repository": {
         "type": "git",
