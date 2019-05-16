@@ -1,0 +1,30 @@
+{
+    "name": "whatsreact",
+    "version": "1.0.0",
+    "description": "react practice node express.js",
+    "main": "app.js",
+    "scripts": {
+        "test": "npm run test",
+        "start": "node server/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Abelyangh/whatsReact.git"
+    },
+    "keywords": [
+        "react"
+    ],
+    "author": "abel",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Abelyangh/whatsReact/issues"
+    },
+    "homepage": "https://github.com/Abelyangh/whatsReact#readme",
+    "dependencies": {
+        "express": "^4.16.4"
+    },
+    "devDependencies": {
+        "webpack": "^4.31.0",
+        "webpack-cli": "^3.3.2"
+    }
+}
