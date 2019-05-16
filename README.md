@@ -33,5 +33,37 @@ react javascript
             use: ['style-loader', 'css-loader', 'sass-loader']
   }
   ```
+- add hot loader 
+  npm install --save-dev webpack-dev-middleware webpack-hot-middleware -D
+  npm install --save-dev react-hot-loader
+  setup middleware
+  ```
+  //webpack hmr 
+    const webpack = require('webpack');
+    const webpackConfig = require('./../webpack.config');
+    const compiler = webpack(webpackConfig);
+
+    app.use(
+        require('webpack-dev-middleware')(compiler, {
+            noInfo: true,
+            publicPath: webpackConfig.output.publicPath
+        })
+    );
+
+    app.use(require('webpack-hot-middleware')(compiler));
+  ```
+  add hmr into webpack.config
+  
+  ```
+  entry: {
+    index: [
+      'webpack-hot-middleware/client?path/__webpack_hmr&timeout=20000',
+      './src/index.js'
+    ]
+  }
+
+  plugins: [htmlPlugin, new webpack.HotModuleReplacementPlugin()]
+
+  ```
 
 
