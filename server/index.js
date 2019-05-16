@@ -8,7 +8,23 @@ const mockResponse = {
     foo: 'bar',
     bar: 'foo'
 };
+
+//webpack hmr 
+const webpack = require('webpack');
+const webpackConfig = require('./../webpack.config');
+const compiler = webpack(webpackConfig);
+
+app.use(
+    require('webpack-dev-middleware')(compiler, {
+        noInfo: true,
+        publicPath: webpackConfig.output.publicPath
+    })
+);
+
+app.use(require('webpack-hot-middleware')(compiler));
+
 app.use(express.static(dist_dir));
+
 app.get('/api', (req, res) => {
     res.send(mockResponse);
 });
